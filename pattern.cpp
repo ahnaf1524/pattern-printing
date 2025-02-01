@@ -281,58 +281,43 @@ void pattern19(void)
 {
     int n;
     cin >> n;
-    int spacesBetween = 0;
-    for (int row = 0; row < n; row++)
+    int iniS = 0;
+    for (int i = 0; i < n; ++i)
     {
-        for (int starCount = 1; starCount <= n - row; starCount++)
+        for (int j = 1; j <= n - i; ++j)
         {
             cout << "*";
         }
-
-        for (int spaceCount = 0; spaceCount < spacesBetween; spaceCount++)
+        for (int k = 0; k < iniS; ++k)
         {
             cout << " ";
         }
-
-        for (int starCount = 1; starCount <= n - row; starCount++)
+        for (int j = 1; j <= n - i; ++j)
         {
             cout << "*";
         }
-        spacesBetween += 2;
-
-        // Move to the next row
         cout << endl;
+        iniS += 2;
     }
 
-    // Reset spaces for the lower half of the pattern
-    spacesBetween = 2 * n - 2;
+    iniS = 2 * n - 2;
 
-    // For the lower half of the pattern
-    for (int row = 1; row <= n; row++)
+    for (int i = 1; i <= n; ++i)
     {
-        // Print the first group of stars
-        for (int starCount = 1; starCount <= row; starCount++)
+        for (int j = 1; j <= i; ++j)
         {
             cout << "*";
         }
-
-        // Print the spaces between the star groups
-        for (int spaceCount = 0; spaceCount < spacesBetween; spaceCount++)
+        for (int k = 0; k < iniS; ++k)
         {
             cout << " ";
         }
-
-        // Print the second group of stars
-        for (int starCount = 1; starCount <= row; starCount++)
+        for (int j = 1; j <= i; ++j)
         {
             cout << "*";
         }
-
-        // Decrease the spaces for the next row
-        spacesBetween -= 2;
-
-        // Move to the next row
         cout << endl;
+        iniS -= 2;
     }
 }
 void pattern20(void)
@@ -342,35 +327,31 @@ void pattern20(void)
     int spaces = 2 * n - 2;
     for (int i = 1; i <= 2 * n - 1; ++i)
     {
-        // stars for the first half
         int stars = i;
-        // stars for the second half
         if (i > n)
             stars = 2 * n - i;
-        // for printing the stars
+        // stars
         for (int j = 1; j <= stars; ++j)
         {
             cout << "*";
         }
-        // for printing the stars
-        for (int j = 1; j <= spaces; ++j)
+        // spaces
+        for (int k = 1; k <= spaces; ++k)
         {
             cout << " ";
         }
-        // for printing the stars
+        // stars
         for (int j = 1; j <= stars; ++j)
         {
             cout << "*";
         }
-        // as soon as the starts for each iteration are printed we move to the
-        // next row and give a line break otherwise all stars
-        // would get printed in 1 line.
         cout << endl;
         if (i < n)
             spaces -= 2;
         else
             spaces += 2;
     }
+
 }
 void pattern21(void)
 {
