@@ -377,17 +377,15 @@ void pattern22(void)
 {
     int n;
     cin >> n;
-    for (int i = 1; i <= 2 * n - 1; ++i)
+    for (int i = 0; i < 2 * n - 1; ++i)
     {
-        // Loop through each column
-        for (int j = 1; j <= 2 * n - 1; ++j)
+        for (int j = 0; j < 2 * n - 1; ++j)
         {
-            int top = i - 1;
-            int bottom = (2 * n - 1) - i;
-            int left = j - 1;
-            int right = (2 * n - 1) - j;
-            int value = n - min(min(top, bottom), min(left, right));
-            cout << value << " ";
+            int top = i;
+            int left = j;
+            int right = (2 * n - 2) - j;
+            int down = (2 * n - 2) - i;
+            cout << (n - min(min(top, down), min(left, right))) << " ";
         }
         cout << endl;
     }
